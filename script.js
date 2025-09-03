@@ -4,6 +4,7 @@ let randomValue;
 let inpup = document.querySelector(".guess");
 let score = 20;
 let restart = document.querySelector(".interface-button");
+let highestScore = 0;
 
 let randomNumber = function () {
   randomValue = Math.floor(Math.random() * 21);
@@ -20,7 +21,7 @@ inpup.addEventListener("keydown", function (element) {
 
 restart.addEventListener("click", function () {
   score = 20;
-  document.querySelector(".label-score").textContent = score;
+  document.querySelector(".score").textContent = score;
   randomValue = Math.floor(Math.random() * 21);
   document.querySelector(".message").textContent = "Start guessing";
 
@@ -44,17 +45,21 @@ function guessNumber() {
     document.querySelector(".interface-button").style.backgroundColor =
       "#06d6a0";
     document.querySelector(".interface-button").style.color = "#0a271f";
+    if (score > highestScore) {
+      highestScore = score;
+      document.querySelector(".highscore").textContent = highestScore;
+    }
   }
   //when the guiess is too low
   if (guess < randomValue) {
     if (score > 1) {
       document.querySelector(".message").textContent = "Too low...😒";
       score--;
-      document.querySelector(".label-score").textContent = score;
+      document.querySelector(".score").textContent = score;
     } else {
       document.querySelector(".message").textContent =
         "You lost the game..loser";
-      document.querySelector(".label-score").textContent = 0;
+      document.querySelector(".score").textContent = 0;
     }
   }
   //when the guess is too large
@@ -62,11 +67,11 @@ function guessNumber() {
     if (score > 1) {
       document.querySelector(".message").textContent = "Too high...😂";
       score--;
-      document.querySelector(".label-score").textContent = score;
+      document.querySelector(".score").textContent = score;
     } else {
       document.querySelector(".message").textContent =
         "You lost the game..loser🤣";
-      document.querySelector(".label-score").textContent = 0;
+      document.querySelector(".score").textContent = 0;
     }
   }
   //when the input isn't a number
