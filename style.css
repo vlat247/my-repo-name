@@ -59,10 +59,15 @@ h1 {
   height: 30px;
   width: 90px;
   font-size: 1.4rem;
+  background-color: #e9f0d6;
+  border: none;
+  border-radius: 3px;
+  color: inherit;
 }
 
-.btn:hover {
-  background-color: #ccc;
+.interface-button:hover {
+  background-color: #ecf3d9;
+  transition: 0.2s;
 }
 
 .label-score {
@@ -111,9 +116,9 @@ h1 {
 }
 .socials {
   margin-top: 20px;
-  bottom: 20px;
+  top: 10px;
   position: fixed;
-  left: 70px;
+  left: 20px;
   z-index: 20;
 }
 
